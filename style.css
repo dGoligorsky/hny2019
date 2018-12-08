@@ -1,0 +1,13 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+canvas {
+    vertical-align: bottom;
+}
+
+html, body {
+    position: fixed;
+}
