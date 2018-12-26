@@ -8,6 +8,7 @@ canvas {
     vertical-align: bottom;
 }
 
+/* prevent inertial scroll on mobile */
 html, body {
     position: fixed;
 }
