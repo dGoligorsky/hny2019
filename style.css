@@ -1,11 +1,32 @@
+@import url('https://rsms.me/inter/inter-ui.css');
+
 body {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-family: 'Inter UI', sans-serif;
+    font-weight: 400;
+    font-size: 10vh;
     line-height: 1.5;
+}
+
+p {
+
+}
+
+.text {
+    z-index: 99;
+    position: absolute;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 10%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
 }
 
 canvas {
     vertical-align: bottom;
+    filter: blur(6px) sepia(110%) brightness(100%) contrast(160%) hue-rotate(170deg);    
 }
 
 /* prevent inertial scroll on mobile */

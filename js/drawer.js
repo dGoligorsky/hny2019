@@ -13,6 +13,7 @@ section.appendChild(renderer.domElement)
 // create a SCENE
 const scene = new THREE.Scene()
 scene.background = new THREE.Color(0xF4E4CF)
+scene.fog = new THREE.FogExp2(0x000000, 0.00025)
 
 // create a CAMERA
 const camera = new THREE.PerspectiveCamera( 110, window.innerWidth / window.innerHeight, 0.1, 5000) // fov, aspect ratio, near clipping, far clipping
@@ -33,7 +34,7 @@ const loadFiles = function(mtlUrl, objUrl) {
         
         mtlLoader.load(mtlUrl, function(materials) {
             objLoader.setMaterials(materials)
-            objLoader.load(objUrl, function(obj) {
+        objLoader.load(objUrl, function(obj) {
                 resolve(obj)
             })
         })
@@ -46,12 +47,15 @@ let dgColor = "#0033cc"
 loadFiles("assets/dg.mtl", "assets/dg.obj").then(function(obj) {
     obj.rotateY(Math.PI)
     obj.position.y = -5
-    obj.position.z = -40
+    obj.position.z = -44 
 
     // go through the model to update material
-    const material = new THREE.MeshLambertMaterial({
-        color: new THREE.Color(dgColor),
-        reflectivity: 1
+    const material = new THREE.MeshNormalMaterial({
+        // color: new THREE.Color(dgColor),
+        // reflectivity: 1,
+        wireframe: false,
+        flatShading: true
+        // fog: true
     })
     obj.traverse(child => {
         child.material = material
