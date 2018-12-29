@@ -123,8 +123,8 @@ const animate = function() {
     // }, 1000 / 30 );
 
     if(dg){
-        dg.rotateY(0.02)
-        stars.rotateY(-0.02)
+        dg.rotateY(0.01)
+        stars.rotateY(-0.01)
     }
 
 }

@@ -9,6 +9,7 @@ body {
     line-height: 1.5;
     background-color: #1a1f2d;
     color: #fafafa;
+    overflow: hidden;
 }
 
 h1 {
@@ -62,5 +63,13 @@ html, body {
     h1 {
         font-size: 20vh;
         text-shadow: 2px 4px 16px #232323;
+    }
+    
+    @media {
+        .safari10 { 
+            .text {
+                height: calc(100% - 44px);
+            }
+        }
     }
 }
