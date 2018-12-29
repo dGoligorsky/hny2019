@@ -1,8 +1,6 @@
-/* @import url('https://rsms.me/inter/inter-ui.css'); */
 @import url('https://fonts.googleapis.com/css?family=VT323');
 
 body {
-    /* font-family: 'Inter UI', sans-serif; */
     font-family: 'VT323', monospace;
     font-weight: 400;
     font-size: 3vh;
@@ -49,6 +47,7 @@ canvas {
 /* prevent inertial scroll on mobile */
 html, body {
     position: fixed;
+    overflow: hidden;
 }
 
 @media (max-width: 400px) {
