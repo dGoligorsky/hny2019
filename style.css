@@ -32,7 +32,7 @@ canvas {
     /* ghostly blue */
     /* filter: blur(6px) sepia(110%) brightness(100%) contrast(160%) hue-rotate(170deg);   */
     /* summer melty warm */
-    filter: blur(6px) sepia(0%) brightness(120%) contrast(200%) hue-rotate(80deg);    
+    filter: blur(4px) sepia(0%) brightness(120%) contrast(200%) hue-rotate(80deg);    
 }
 
 /* prevent inertial scroll on mobile */

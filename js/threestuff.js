@@ -23,6 +23,9 @@ const light = new THREE.DirectionalLight(0xffffff, 1)
 light.position.set(0,0,-1)
 scene.add(light) 
 
+// make a THREE.js loader
+const loader = new THREE.TextureLoader()
+
 // using JS promises. Creating a new promise function that is passed the mtl and obj asset. On resolve (when the files are successfully loaded) the function returns the object. Now you can use the loadFiles() function and add on a .then() method that easily adds new obj/mtls to the scene.
 const loadFiles = function(mtlUrl, objUrl) {
     return new Promise((resolve, reject) => {
@@ -59,6 +62,41 @@ loadFiles("assets/dg.mtl", "assets/dg.obj").then(function(obj) {
     scene.add(dg)
 })
 
+// make a particle system
+const makeStars = function() {
+    const texture = loader.load("assets/particle.png")
+    const geometry = new THREE.Geometry()
+
+    for(let i = 0; i < 1000; i = i + 1) {
+        const point = new THREE.Vector3()
+        const sphericalPoint = new THREE.Spherical(
+            // radius, phi, theta
+            10 + Math.random() * 10,
+            2 * Math.PI * Math.random(),
+            Math.PI * Math.random()
+        )
+
+        point.setFromSpherical(sphericalPoint)
+
+        geometry.vertices.push(point)
+    }
+
+    const material = new THREE.PointsMaterial({
+        color: 0x0033cc,
+        size: 0.5,
+        map: texture,
+        transparent: true,
+        blending: THREE.AdditiveBlending,
+        depthTest: true,
+        depthWrite: false
+    })
+
+    const points = new THREE.Points(geometry, material)
+    scene.add(points)
+    return points
+}
+const stars = makeStars()
+
 let cameraAimX = 0
 let cameraAimY = 0
 let cameraAimZ = -18
@@ -78,9 +116,16 @@ const animate = function() {
     renderer.render(scene, camera)
     requestAnimationFrame(animate)
 
+    // // frame rate throttling
+    // setTimeout( function() {
+    //     requestAnimationFrame( animate );
+    // }, 1000 / 30 );
+
     if(dg){
-        dg.rotateY(0.02)
+        dg.rotateY(0.01)
+        stars.rotateY(-0.01)
     }
+
 }
 // and kick off the animation
 animate()
