@@ -1,41 +1,66 @@
-@import url('https://rsms.me/inter/inter-ui.css');
+/* @import url('https://rsms.me/inter/inter-ui.css'); */
+@import url('https://fonts.googleapis.com/css?family=VT323');
 
 body {
-    font-family: 'Inter UI', sans-serif;
+    /* font-family: 'Inter UI', sans-serif; */
+    font-family: 'VT323', monospace;
     font-weight: 400;
     font-size: 3vh;
     line-height: 1.5;
-    background-color: #fafafa;
+    background-color: #1a1f2d;
+    color: #fafafa;
 }
 
-p {
-
+h1 {
+    font-size: 10vh;
+    margin-left: 32px;
+    margin-right: 32px;
 }
 
 .text {
     z-index: 1;
     position: absolute;
     display: flex;
-    height: 100vh;
+    height: 10vh;
     width: 100vw;
-    top: 0;
-    left: 10%;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
+    top: 10px;
+    margin: auto auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     pointer-events: none;
 }
 
 canvas {
     vertical-align: bottom;
     z-index: 10;
+}
+
+#threeId{
     /* ghostly blue */
     /* filter: blur(6px) sepia(110%) brightness(100%) contrast(160%) hue-rotate(170deg);   */
     /* summer melty warm */
-    filter: blur(4px) sepia(0%) brightness(120%) contrast(200%) hue-rotate(80deg);    
+    /* filter: blur(0px) sepia(0%) brightness(120%) contrast(200%) hue-rotate(80deg);     */
+    /* weird contrasty duotonish */
+    filter: blur(3px) brightness(110%) contrast(1000%) hue-rotate(130deg);
 }
 
 /* prevent inertial scroll on mobile */
 html, body {
     position: fixed;
+}
+
+@media (max-width: 400px) {
+    .text {
+        padding: 3vh 0;
+        height: 100vh;
+        top: 0;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    h1 {
+        font-size: 20vh;
+        text-shadow: 2px 4px 16px #232323;
+    }
 }

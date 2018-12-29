@@ -26,6 +26,7 @@ scene.add(light)
 // make a THREE.js loader
 const loader = new THREE.TextureLoader()
 
+
 // using JS promises. Creating a new promise function that is passed the mtl and obj asset. On resolve (when the files are successfully loaded) the function returns the object. Now you can use the loadFiles() function and add on a .then() method that easily adds new obj/mtls to the scene.
 const loadFiles = function(mtlUrl, objUrl) {
     return new Promise((resolve, reject) => {
@@ -122,8 +123,8 @@ const animate = function() {
     // }, 1000 / 30 );
 
     if(dg){
-        dg.rotateY(0.01)
-        stars.rotateY(-0.01)
+        dg.rotateY(0.02)
+        stars.rotateY(-0.02)
     }
 
 }
@@ -133,6 +134,8 @@ animate()
 document.addEventListener("mousemove", function(event) {
     cameraAimX = .025 * ((window.innerWidth / 2) - event.pageX)
     cameraAimY = .025 * ((window.innerHeight / 2) - event.pageY)
+
+    document.getElementById('threeId').style.filter='blur(' + ( event.pageY / 50 ) + 'px) brightness(110%) contrast(1000%) hue-rotate(' + event.pageX + 'deg)'
 })
 
 document.addEventListener("wheel", function(event) {
