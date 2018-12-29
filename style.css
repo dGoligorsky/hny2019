@@ -3,8 +3,9 @@
 body {
     font-family: 'Inter UI', sans-serif;
     font-weight: 400;
-    font-size: 10vh;
+    font-size: 3vh;
     line-height: 1.5;
+    background-color: #fafafa;
 }
 
 p {
@@ -12,7 +13,7 @@ p {
 }
 
 .text {
-    z-index: 99;
+    z-index: 1;
     position: absolute;
     display: flex;
     height: 100vh;
@@ -22,11 +23,16 @@ p {
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
+    pointer-events: none;
 }
 
 canvas {
     vertical-align: bottom;
-    filter: blur(6px) sepia(110%) brightness(100%) contrast(160%) hue-rotate(170deg);    
+    z-index: 10;
+    /* ghostly blue */
+    /* filter: blur(6px) sepia(110%) brightness(100%) contrast(160%) hue-rotate(170deg);   */
+    /* summer melty warm */
+    filter: blur(6px) sepia(0%) brightness(120%) contrast(200%) hue-rotate(80deg);    
 }
 
 /* prevent inertial scroll on mobile */
